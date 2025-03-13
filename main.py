@@ -169,5 +169,25 @@ def parens_match_dc_helper(mylist):
     else:
         return (i + k - j, l)
     ###
-    
+
+def iterate(f, x, a):
+    """
+    Params:
+      f.....function to apply
+      x.....return when a is empty
+      a.....input sequence
+    """
+    print('iterate: calling %s x=%s a=%s' % (f.__name__, x, a))
+    if len(a) == 0:
+        return x
+    else:
+        return iterate(f, f(x, a[0]), a[1:])
+
+def plus(x, y):
+    return x + y
+
+def reduce(f, x, a):
+    return iterate(f, x, a)
+
+
 
